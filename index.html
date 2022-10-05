@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Curriculo </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="./index.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body class="container-fluid bg-light">
+    <header class="header-curriculo row pb-md-3">
+        <div class="circle-curriculo mt-2 col-12 col-md-6 d-flex justify-content-center">
+            <img class="rounded-circle img-fluid w-50" src="../src/img/galileu.webp">
+        </div>
+        <div class="h1-curriculo mt-2 col-12 col-md-3 d-flex justify-content-center align-items-center">
+            <h1> Róbson da Silva Benedito </h1>
+        </div>
+        <div id="nav-section">
+            <nav class="navbar navbar-expand-md ps-3 bg-light">
+                <button id="btn-section" type="button" class="navbar-toggler col-12" data-bs-toggle="collapse"
+                    data-bs-target="#nav">
+                    <i class="material-icons"> menu </i>
+                </button>
+                <div class="collapse navbar-collapse d-md-flex justify-content-md-center" id="nav">
+                    <a onclick="goTo('contact')" class="btn btn-success mt-2 col-12 col-md-auto"> Contato </a>
+                    <a onclick="goTo('skill')" class="btn btn-success mt-2 ms-md-1 col-12 col-md-auto"> Habilidades </a>
+                    <a onclick="goTo('education')" class="btn btn-success mt-2 ms-md-1 col-12 col-md-auto"> Formação
+                    </a>
+                    <a onclick="goTo('curso')" class="btn btn-success mt-2 ms-md-1 col-12 col-md-auto"> Curso </a>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <main class="d-flex flex-row">
+        <section class="sec-curriculo">
+            <hr>
+            <article class="ps-2">
+                <h2 id="contact"> Contato </h2>
+                <div class="d-flex flex-row">
+                    <i class="material-icons me-3"> mail </i>
+                    <a href="mailto: robson.silva.benedito@gmail.com">
+                        robson.silva.benedito@gmail.com
+                    </a>
+                </div>
+                <div class="d-flex flex-row">
+                    <i class="material-icons me-3"> work </i>
+                    <a href="https://www.linkedin.com/in/r%C3%B3bson-silva-benedito-7305b6223/" target="_blank">
+                        Linkedin
+                    </a>
+                </div>
+            </article>
+            <hr>
+            <article class="ps-2">
+                <div id="skill" class="ps-2 topic">
+                    <h4> Habilidades </h4>
+                </div>
+                <ul>
+                    <li> Lógica de Programação </li>
+                    <li> Orientação à objeto </li>
+                    <li> Python </li>
+                    <li> Javascript</li>
+                    <ul>
+                        <li> Node.js </li>
+                    </ul>
+                </ul>
+            </article>
+            <article class="ps-2">
+                <div class="ps-2 topic" id="education">
+                    <h4> Formação </h4>
+                </div>
+                <p class="fw-bold"> Bacharelado em Sistemas de Informação </p>
+                <p class="ms-2"> Instituto Federal do Paraná - Campus Ivaiporã | 2020 - 2023 </p>
+            </article>
+            <article class="ps-2">
+                <div  id="curso" class="ps-2 topic">
+                    <h4> Curso </h4>
+                </div>
+                <p class="fw-bold"> Introdução ao Desenvolvimento Mobile com Flutter </p>
+                <p class="ms-2">
+                    45 Horas | 2021 - 2021 <br>
+
+                    Projeto de Extensão PADIE <br>
+
+                    IFPR | Instituto Federal do Paraná - Campus Paranavaí
+                </p>
+                <p class="fw-bold"> Desenvolvimento Básico de um REST API com Java e Spring para o Banco de Dados MySQL </p>
+                <p class="ms-2">
+                    49 Horas | 2021 - 2021 <br>
+
+                    Projeto de Extensão PADIE <br>
+
+                    IFPR | Instituto Federal do Paraná - Campus Paranavaí
+                </p>
+            </article>
+        </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"> </script>
+
+    <script>
+        //
+        let navbar = document.getElementById("nav-section");
+        let navOffset = navbar.offsetTop;
+
+        //
+        window.addEventListener("scroll", () => {
+            (window.scrollY >= navOffset) ?
+                navbar.classList.add('fixed-top') :
+                navbar.classList.remove('fixed-top')
+        });
+
+        //
+        function goTo(id) {
+            //
+            let elemento = document.getElementById(id)
+
+            //
+            let navbar = document.getElementById('nav-section')
+            let button = document.getElementById('btn-section')
+
+            let menuOff = button.offsetHeight <= 0 ? navbar.offsetHeight : button.offsetHeight * 1.5
+
+            //
+            if (navbar.classList.contains('fixed-top')) {
+                //
+                window.scrollTo(0, (elemento.offsetTop - menuOff))
+            } else {
+                //
+                window.scrollTo(0, (elemento.offsetTop - menuOff * (button.offsetHeight <= 0 ? 2 : 5.3)))
+            }
+
+
+        }
+    </script>
+</body>
+
+</html>
